@@ -1,0 +1,1076 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Harshini Rachcha · Portfolio</title>
+    <!-- Google Fonts: Inter & Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome 6 (free) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", "Poppins", sans-serif;
+        background: #f8f9fc;
+        color: #1e1e2a;
+        line-height: 1.6;
+        scroll-behavior: smooth;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ----- GLASSMORPHISM & UTILITIES ----- */
+      .glass {
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.08);
+      }
+
+      .gradient-text {
+        background: linear-gradient(135deg, #6c5ce7, #a29bfe, #fd79a8);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        background-size: 200% 200%;
+        animation: gradientShift 6s ease-in-out infinite alternate;
+      }
+
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 100% 50%;
+        }
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 0.8rem 2rem;
+        border-radius: 50px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        font-family: "Inter", sans-serif;
+        background: #1e1e2a;
+        color: #fff;
+        box-shadow: 0 4px 15px rgba(30, 30, 42, 0.15);
+        text-align: center;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 30px rgba(30, 30, 42, 0.25);
+        background: #2d2d3f;
+      }
+
+      .btn:active {
+        transform: scale(0.97);
+      }
+
+      .btn-outline {
+        background: transparent;
+        border: 2px solid #1e1e2a;
+        color: #1e1e2a;
+        box-shadow: none;
+      }
+
+      .btn-outline:hover {
+        background: #1e1e2a;
+        color: #fff;
+        box-shadow: 0 8px 30px rgba(30, 30, 42, 0.15);
+      }
+
+      section {
+        padding: 5rem 1.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      h2 {
+        font-size: clamp(2rem, 5vw, 2.8rem);
+        font-weight: 700;
+        margin-bottom: 2.5rem;
+        letter-spacing: -0.02em;
+        color: #1e1e2a;
+      }
+
+      h2 .highlight {
+        background: linear-gradient(135deg, #6c5ce7, #a29bfe, #fd79a8);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        background-size: 200% 200%;
+        animation: gradientShift 4s ease-in-out infinite alternate;
+      }
+
+      /* ----- SCROLLBAR ----- */
+      ::-webkit-scrollbar {
+        width: 5px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f2f6;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #6c5ce7, #a29bfe);
+        border-radius: 12px;
+      }
+
+      /* ----- HERO (HOME) ----- */
+      #home {
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 1.5rem;
+        position: relative;
+        background: linear-gradient(145deg, #ffffff 0%, #f8f9fc 100%);
+        overflow: hidden;
+      }
+
+      #home::before {
+        content: "";
+        position: absolute;
+        width: min(800px, 100vw);
+        height: min(800px, 100vw);
+        background: radial-gradient(
+          circle,
+          rgba(108, 92, 231, 0.06) 0%,
+          rgba(162, 155, 254, 0.04) 40%,
+          transparent 70%
+        );
+        top: -20%;
+        right: -10%;
+        animation: floatOrb 20s infinite alternate ease-in-out;
+        pointer-events: none;
+      }
+
+      #home::after {
+        content: "";
+        position: absolute;
+        width: min(600px, 80vw);
+        height: min(600px, 80vw);
+        background: radial-gradient(
+          circle,
+          rgba(253, 121, 168, 0.05) 0%,
+          rgba(108, 92, 231, 0.03) 40%,
+          transparent 70%
+        );
+        bottom: -20%;
+        left: -10%;
+        animation: floatOrb 25s infinite alternate-reverse ease-in-out;
+        pointer-events: none;
+      }
+
+      @keyframes floatOrb {
+        0% {
+          transform: translate(0, 0) scale(1);
+        }
+        100% {
+          transform: translate(30px, -20px) scale(1.1);
+        }
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        animation: fadeUp 1s ease-out forwards;
+        width: 100%;
+        max-width: 900px;
+      }
+
+      @keyframes fadeUp {
+        0% {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hero-sub {
+        font-size: clamp(0.8rem, 2vw, 1rem);
+        font-weight: 500;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #6c5ce7;
+        margin-bottom: 0.5rem;
+      }
+
+      .hero-title {
+        font-size: clamp(2.5rem, 10vw, 5rem);
+        font-weight: 800;
+        line-height: 1.1;
+        margin: 0.3rem 0;
+        color: #1e1e2a;
+      }
+
+      .hero-title .line2 {
+        display: block;
+        font-weight: 400;
+        font-size: clamp(1rem, 2.5vw, 1.8rem);
+        color: #5a5a72;
+        letter-spacing: 0.5px;
+        margin-top: 0.2rem;
+      }
+
+      .hero-tagline {
+        font-size: clamp(1rem, 2.5vw, 1.3rem);
+        font-weight: 400;
+        margin: 1rem 0 0.5rem;
+        color: #3d3d54;
+      }
+
+      .hero-tagline i {
+        color: #fd79a8;
+        margin-right: 6px;
+      }
+
+      .hero-handle {
+        font-size: clamp(0.9rem, 2vw, 1.1rem);
+        font-weight: 400;
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        display: inline-block;
+        padding: 0.4rem 1.5rem;
+        border-radius: 50px;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        margin: 0.6rem 0 1.5rem;
+        letter-spacing: 0.3px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+      }
+
+      .hero-handle a {
+        color: #6c5ce7;
+        text-decoration: none;
+        transition: 0.3s;
+        font-weight: 500;
+      }
+      .hero-handle a:hover {
+        color: #fd79a8;
+      }
+
+      .hero-btns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        justify-content: center;
+        margin-top: 1.5rem;
+      }
+
+      .hero-btns .btn {
+        flex: 1 1 auto;
+        min-width: 160px;
+        max-width: 240px;
+      }
+
+      /* ----- ABOUT ----- */
+      #about {
+        background: #ffffff;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .about-text p {
+        font-size: clamp(1rem, 2.2vw, 1.15rem);
+        font-weight: 400;
+        color: #3d3d54;
+        max-width: 600px;
+        margin-bottom: 1.5rem;
+      }
+
+      .about-text .highlight-text {
+        background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-weight: 600;
+      }
+
+      .about-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+      }
+
+      .stat-card {
+        padding: 1.5rem 1rem;
+        border-radius: 24px;
+        text-align: center;
+        background: #f8f9fc;
+        border: 1px solid rgba(0, 0, 0, 0.02);
+        transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        position: relative;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.06);
+        border-color: rgba(108, 92, 231, 0.1);
+      }
+
+      .stat-number {
+        font-size: clamp(2rem, 5vw, 2.8rem);
+        font-weight: 700;
+        background: linear-gradient(135deg, #6c5ce7, #a29bfe, #fd79a8);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        background-size: 200% 200%;
+        animation: gradientShift 4s ease-in-out infinite alternate;
+      }
+
+      /* ----- SKILLS ----- */
+      #skills {
+        background: #f8f9fc;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 1.2rem;
+      }
+
+      .skill-card {
+        background: #ffffff;
+        padding: 1.5rem 0.8rem;
+        border-radius: 24px;
+        text-align: center;
+        border: 1px solid rgba(0, 0, 0, 0.02);
+        transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        cursor: default;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+      }
+
+      .skill-card i {
+        font-size: clamp(1.8rem, 4vw, 2.4rem);
+        background: linear-gradient(135deg, #6c5ce7, #a29bfe, #fd79a8);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 0.4rem;
+        background-size: 200% 200%;
+        animation: gradientShift 4s ease-in-out infinite alternate;
+      }
+
+      .skill-card span {
+        display: block;
+        font-weight: 500;
+        font-size: clamp(0.85rem, 1.8vw, 1rem);
+        color: #3d3d54;
+      }
+
+      .skill-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px -12px rgba(108, 92, 231, 0.08);
+        border-color: rgba(108, 92, 231, 0.08);
+      }
+
+      /* ----- SERVICES ----- */
+      #services {
+        background: #ffffff;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .service-card {
+        padding: 1.8rem 1.2rem;
+        border-radius: 28px;
+        background: #f8f9fc;
+        border: 1px solid rgba(0, 0, 0, 0.02);
+        transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        text-align: center;
+      }
+
+      .service-card i {
+        font-size: clamp(2rem, 5vw, 2.8rem);
+        background: linear-gradient(135deg, #6c5ce7, #a29bfe, #fd79a8);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 0.6rem;
+        background-size: 200% 200%;
+        animation: gradientShift 4s ease-in-out infinite alternate;
+      }
+
+      .service-card h3 {
+        font-size: clamp(1rem, 2.5vw, 1.3rem);
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+        color: #1e1e2a;
+      }
+
+      .service-card p {
+        font-weight: 400;
+        color: #5a5a72;
+        font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+      }
+
+      .service-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px -12px rgba(108, 92, 231, 0.06);
+        border-color: rgba(108, 92, 231, 0.06);
+      }
+
+      /* ----- REEL CREATOR SPOTLIGHT ----- */
+      #reel-spotlight {
+        background: #f8f9fc;
+        text-align: center;
+      }
+
+      .reel-spotlight-content {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .reel-spotlight-content .badge {
+        background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+        padding: 0.5rem 1.8rem;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+        letter-spacing: 0.5px;
+        display: inline-block;
+        color: #fff;
+        box-shadow: 0 8px 30px rgba(108, 92, 231, 0.15);
+      }
+
+      .reel-spotlight-content p {
+        max-width: 600px;
+        font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+        font-weight: 400;
+        color: #3d3d54;
+      }
+
+      /* ----- SOCIAL MEDIA SECTION ----- */
+      #social {
+        background: #ffffff;
+        text-align: center;
+      }
+
+      .social-stats {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+      }
+
+      .social-stat {
+        background: #f8f9fc;
+        padding: 1.2rem 2rem;
+        border-radius: 50px;
+        border: 1px solid rgba(0, 0, 0, 0.02);
+        transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        flex: 0 1 auto;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+      }
+
+      .social-stat:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.04);
+      }
+
+      .social-stat .num {
+        font-size: clamp(1.6rem, 4vw, 2.4rem);
+        font-weight: 700;
+        background: linear-gradient(135deg, #6c5ce7, #a29bfe, #fd79a8);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        background-size: 200% 200%;
+        animation: gradientShift 4s ease-in-out infinite alternate;
+      }
+
+      .social-stat .label {
+        font-weight: 400;
+        color: #5a5a72;
+        margin-left: 4px;
+        font-size: clamp(0.85rem, 1.8vw, 1rem);
+      }
+
+      /* ----- CONTACT ----- */
+      #contact {
+        background: #f8f9fc;
+      }
+
+      .contact-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+      }
+
+      .contact-info p {
+        font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+        margin: 0.8rem 0;
+        font-weight: 400;
+        color: #3d3d54;
+        word-break: break-word;
+      }
+
+      .contact-info i {
+        width: 2rem;
+        color: #6c5ce7;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 1rem 1.2rem;
+        margin-bottom: 1.2rem;
+        border-radius: 50px;
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        background: #ffffff;
+        color: #1e1e2a;
+        font-family: "Inter", sans-serif;
+        transition: 0.2s;
+        font-size: clamp(0.9rem, 2vw, 1rem);
+        -webkit-appearance: none;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+      }
+
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        outline: none;
+        border-color: #6c5ce7;
+        box-shadow: 0 4px 25px rgba(108, 92, 231, 0.06);
+      }
+
+      .contact-form textarea {
+        border-radius: 24px;
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      .contact-form .btn {
+        width: 100%;
+        font-size: clamp(0.95rem, 2vw, 1.1rem);
+      }
+
+      /* ----- FOOTER ----- */
+      footer {
+        background: #ffffff;
+        padding: 2rem 1.5rem;
+        text-align: center;
+        border-top: 1px solid rgba(0, 0, 0, 0.02);
+      }
+
+      .footer-socials {
+        display: flex;
+        justify-content: center;
+        gap: 1.8rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .footer-socials a {
+        color: #5a5a72;
+        font-size: clamp(1.3rem, 3vw, 1.6rem);
+        transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        padding: 0.3rem;
+      }
+
+      .footer-socials a:hover {
+        color: #6c5ce7;
+        transform: translateY(-4px);
+      }
+
+      .scroll-top {
+        display: inline-block;
+        margin-top: 1rem;
+        color: #6c5ce7;
+        font-size: clamp(1.4rem, 3vw, 1.8rem);
+        transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        padding: 0.3rem;
+      }
+      .scroll-top:hover {
+        color: #fd79a8;
+        transform: translateY(-4px);
+      }
+
+      /* ----- RESPONSIVE BREAKPOINTS ----- */
+      @media (max-width: 900px) {
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        .contact-wrapper {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+      }
+
+      @media (max-width: 600px) {
+        section {
+          padding: 3rem 1rem;
+        }
+        .hero-btns .btn {
+          min-width: 140px;
+          flex: 1 1 100%;
+          max-width: 100%;
+        }
+        .about-stats {
+          grid-template-columns: 1fr 1fr;
+          gap: 0.8rem;
+        }
+        .skills-grid {
+          grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+          gap: 0.8rem;
+        }
+        .services-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 1rem;
+        }
+        .social-stats {
+          gap: 0.8rem;
+        }
+        .social-stat {
+          padding: 0.8rem 1.2rem;
+          flex: 1 1 auto;
+          min-width: 100px;
+        }
+        .hero-handle {
+          font-size: 0.85rem;
+          padding: 0.3rem 1rem;
+        }
+      }
+
+      @media (max-width: 400px) {
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+        .about-stats {
+          grid-template-columns: 1fr 1fr;
+        }
+        .skills-grid {
+          grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
+        }
+        .hero-title {
+          font-size: 2rem;
+        }
+      }
+
+      .anchor {
+        scroll-margin-top: 1.5rem;
+      }
+
+      .color-divider {
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(90deg, #6c5ce7, #a29bfe, #fd79a8);
+        border-radius: 4px;
+        margin: 0.8rem auto;
+        background-size: 200% 100%;
+        animation: gradientShift 3s ease-in-out infinite alternate;
+      }
+
+      /* touch-friendly tap targets */
+      .btn,
+      .social-stat,
+      .service-card,
+      .skill-card,
+      .stat-card {
+        -webkit-tap-highlight-color: rgba(108, 92, 231, 0.1);
+      }
+
+      .about-text p {
+        max-width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HOME -->
+    <section id="home" class="anchor">
+      <div class="hero-content">
+        <div class="hero-sub">✦ reel creator · cinematic storyteller</div>
+        <h1 class="hero-title">
+          Harshini Rachcha
+          <span class="line2">Video Editor &amp; Reel Creator</span>
+        </h1>
+        <div class="hero-tagline">
+          <i class="fas fa-play-circle"></i> 1M+ Views on Instagram
+        </div>
+        <div class="hero-handle">
+          <i class="fab fa-instagram" style="color: #fd79a8"></i>
+          <a href="https://www.instagram.com/harshu_.diaries" target="_blank"
+            >@harshu_.diaries</a
+          >
+          &nbsp;·&nbsp;
+          <i class="fab fa-youtube" style="color: #fd79a8"></i>
+          <a href="https://www.youtube.com/@HarshuuDiaries" target="_blank"
+            >@HarshuuDiaries</a
+          >
+        </div>
+        <div class="hero-btns">
+          <a
+            href="https://www.instagram.com/harshu_.diaries"
+            target="_blank"
+            class="btn"
+            ><i class="fab fa-instagram"></i> View My Work</a
+          >
+          <a href="#contact" class="btn btn-outline"
+            ><i class="fas fa-envelope"></i> Contact Me</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="anchor">
+      <h2><span class="highlight">About</span> Me</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>
+            Harshini is a passionate video editor, cinematic storyteller, and
+            <span class="highlight-text">reel creator</span> who transforms
+            ideas into visually engaging stories. With over 1 million views on
+            Instagram, she specializes in creating aesthetic edits, engaging
+            reels, and cinematic short-form content.
+          </p>
+          <p
+            style="
+              font-weight: 400;
+              color: #3d3d54;
+              font-size: clamp(0.9rem, 2vw, 1rem);
+            "
+          >
+            <i class="fas fa-heart" style="color: #fd79a8"></i> Passion for
+            storytelling ·
+            <i class="fas fa-cut" style="color: #6c5ce7"></i> Creative editing ·
+            <i class="fas fa-rocket" style="color: #a29bfe"></i> 1M+ reach
+          </p>
+          <div class="color-divider"></div>
+        </div>
+        <div class="about-stats">
+          <div class="stat-card">
+            <span class="stat-number">1M+</span><br /><span
+              style="
+                font-weight: 400;
+                color: #5a5a72;
+                font-size: clamp(0.8rem, 1.8vw, 1rem);
+              "
+              >Views</span
+            >
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">250+</span><br /><span
+              style="
+                font-weight: 400;
+                color: #5a5a72;
+                font-size: clamp(0.8rem, 1.8vw, 1rem);
+              "
+              >Followers</span
+            >
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">50+</span><br /><span
+              style="
+                font-weight: 400;
+                color: #5a5a72;
+                font-size: clamp(0.8rem, 1.8vw, 1rem);
+              "
+              >Clients</span
+            >
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">100+</span><br /><span
+              style="
+                font-weight: 400;
+                color: #5a5a72;
+                font-size: clamp(0.8rem, 1.8vw, 1rem);
+              "
+              >Reels</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="anchor">
+      <h2><span class="highlight">Skills</span> &amp; Tools</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <i class="fas fa-scroll"></i><span>CapCut</span>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-video"></i><span>InShot</span>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-image"></i><span>Snapseed</span>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-play-circle"></i><span>Reel Editing</span>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-film"></i><span>Cinematic Editing</span>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-cut"></i><span>Short Video</span>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-pen-fancy"></i><span>Storytelling</span>
+        </div>
+        <div class="skill-card">
+          <i class="fas fa-palette"></i><span>Aesthetic Content</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="anchor">
+      <h2><span class="highlight">Services</span></h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <i class="fas fa-clapperboard"></i>
+          <h3>Reel Editing</h3>
+          <p>Trendy, fast-paced reels that hook viewers</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-video"></i>
+          <h3>Video Editing</h3>
+          <p>Full-length edits with cinematic flow</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-book-open"></i>
+          <h3>Storytelling</h3>
+          <p>Emotion-driven narrative edits</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-bolt"></i>
+          <h3>Short Video</h3>
+          <p>Snappy, high-impact short content</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- REEL CREATOR SPOTLIGHT -->
+    <section id="reel-spotlight" class="anchor">
+      <h2><span class="highlight">Reel</span> Creator</h2>
+      <div class="reel-spotlight-content">
+        <div>
+          <span class="badge"><i class="fas fa-play"></i> Reel specialist</span>
+          <p style="margin-top: 1rem; max-width: 600px">
+            I craft scroll-stopping reels that blend aesthetic visuals, trending
+            audio, and storytelling magic. From concept to cut — every reel is
+            designed to engage, inspire, and go viral.
+          </p>
+        </div>
+        <div
+          style="
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+          "
+        >
+          <div class="stat-card" style="min-width: 100px">
+            <span class="stat-number">1M+</span><br /><span
+              style="
+                font-weight: 400;
+                color: #5a5a72;
+                font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+              "
+              >Reel Views</span
+            >
+          </div>
+          <div class="stat-card" style="min-width: 100px">
+            <span class="stat-number">100+</span><br /><span
+              style="
+                font-weight: 400;
+                color: #5a5a72;
+                font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+              "
+              >Reels Created</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL MEDIA SECTION -->
+    <section id="social" class="anchor">
+      <h2><span class="highlight">Social</span> Presence</h2>
+      <div class="social-stats">
+        <div class="social-stat">
+          <span class="num">250+</span><span class="label">Followers</span>
+        </div>
+        <div class="social-stat">
+          <span class="num">1M+</span><span class="label">Views</span>
+        </div>
+        <div class="social-stat" style="background: #f8f9fc">
+          <i
+            class="fab fa-instagram"
+            style="
+              color: #fd79a8;
+              font-size: clamp(1.4rem, 3vw, 2rem);
+              margin-right: 4px;
+            "
+          ></i>
+          <span
+            style="
+              font-weight: 500;
+              color: #1e1e2a;
+              font-size: clamp(0.8rem, 1.8vw, 1rem);
+            "
+            >@harshu_.diaries</span
+          >
+        </div>
+      </div>
+      <div
+        style="
+          margin-top: 2rem;
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+          flex-wrap: wrap;
+        "
+      >
+        <a
+          href="https://www.instagram.com/harshu_.diaries"
+          target="_blank"
+          class="btn"
+          style="
+            background: linear-gradient(135deg, #fd79a8, #e84393);
+            flex: 0 1 auto;
+            min-width: 140px;
+          "
+          ><i class="fab fa-instagram"></i> Instagram</a
+        >
+        <a
+          href="https://www.youtube.com/@HarshuuDiaries"
+          target="_blank"
+          class="btn"
+          style="
+            background: linear-gradient(135deg, #ff7675, #d63031);
+            flex: 0 1 auto;
+            min-width: 140px;
+          "
+          ><i class="fab fa-youtube"></i> YouTube</a
+        >
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="anchor">
+      <h2><span class="highlight">Contact</span></h2>
+      <div class="contact-wrapper">
+        <div
+          class="contact-info glass"
+          style="padding: 2rem; border-radius: 32px"
+        >
+          <p>
+            <i class="fas fa-envelope" style="color: #fd79a8"></i>
+            harshini5256@gmail.com
+          </p>
+          <p>
+            <i class="fab fa-instagram" style="color: #fd79a8"></i>
+            @harshu_.diaries
+          </p>
+          <p>
+            <i class="fas fa-phone-alt" style="color: #6c5ce7"></i> +91 98765
+            43210
+          </p>
+          <div style="margin-top: 1.5rem; display: flex; gap: 1rem">
+            <a
+              href="https://www.instagram.com/harshu_.diaries"
+              target="_blank"
+              style="color: #fd79a8; font-size: clamp(1.6rem, 4vw, 2rem)"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a
+              href="https://www.youtube.com/@HarshuuDiaries"
+              target="_blank"
+              style="color: #ff7675; font-size: clamp(1.6rem, 4vw, 2rem)"
+              ><i class="fab fa-youtube"></i
+            ></a>
+          </div>
+        </div>
+        <form
+          class="contact-form glass"
+          style="padding: 2rem; border-radius: 32px"
+        >
+          <input type="text" placeholder="Your name" />
+          <input type="email" placeholder="Your email" />
+          <textarea placeholder="Tell me about your project..."></textarea>
+          <button type="submit" class="btn">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-socials">
+        <a
+          href="https://www.instagram.com/harshu_.diaries"
+          target="_blank"
+          aria-label="Instagram"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a
+          href="https://www.youtube.com/@HarshuuDiaries"
+          target="_blank"
+          aria-label="YouTube"
+          ><i class="fab fa-youtube"></i
+        ></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <p
+        style="
+          font-weight: 400;
+          color: #5a5a72;
+          font-size: clamp(0.75rem, 1.8vw, 0.9rem);
+        "
+      >
+        &copy; 2026 Harshini Rachcha · Reel Creator &amp; Cinematic Storyteller
+      </p>
+      <a href="#home" class="scroll-top" aria-label="Scroll to top"
+        ><i class="fas fa-chevron-up"></i
+      ></a>
+    </footer>
+  </body>
+</html>
